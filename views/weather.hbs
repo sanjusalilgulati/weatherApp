@@ -1,0 +1,74 @@
+{{>header}}
+  
+{{>navbar}}
+<!-- Main Body  -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-12 mx-auto">
+           <div class="main_content">
+              <form class="temp_form">
+                  <input type="text" id="cityName" class="fomr-controle" placeholder="City Name" autocapitalize="off" >
+                  <input type="submit" class="btn" value="Search" id="submitBtn">
+              </form>
+           </div>
+           <div class="tempInformation">
+              <div class="top_layer">
+                <p id="day">Monday</p>
+                <p id="todayDate"><span id="setMonth"></span>, <span id="setDate"></span></p>
+              </div>
+              <div class="main_layer">
+                <p id="city_name"> Get Output here </p>
+                <div class="middle_layer data_hide">
+                  <p id="temp"><span id="temp_real_val">0</span> <sup>o</sup> C</p>
+                  <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                </div>
+              </div>
+           </div>
+        </div>
+    </div>    
+</div>
+<!-- Footer Code -->
+<script src="js/main.js"></script>
+<script>
+    let currDate = new Date();
+    const getCurrentDay = () => {
+      let weekDay = new Array();
+      weekDay[0] = 'Sunday';
+      weekDay[1] = 'Monday';
+      weekDay[2] = 'Tuesday';
+      weekDay[3] = 'Wednesday';
+      weekDay[4] = 'Thursday';
+      weekDay[5] = 'Friday';
+      weekDay[6] = 'Saturday';
+      let day = weekDay[currDate.getDay()];
+      const dayId = document.getElementById('day'); 
+      dayId.innerText = day;
+
+      return day;
+    };
+    const getMonth = () => {
+      let Months = new Array();
+      Months[0] = 'January';
+      Months[1] = 'February';
+      Months[2] = 'March';
+      Months[3] = 'April';
+      Months[4] = 'May';
+      Months[5] = 'June';
+      Months[6] = 'July';
+      Months[7] = 'August';
+      Months[8] = 'September';
+      Months[9] = 'October';
+      Months[10] = 'November';
+      Months[11] = 'December';
+      let getMonth = Months[currDate.getMonth()];
+      const monthName = document.getElementById('setMonth'); 
+      const setDate = document.getElementById('setDate'); 
+      monthName.innerText = getMonth;
+      setDate.innerText = currDate.getDate();
+      return getMonth;
+    };
+    getCurrentDay();
+    getMonth();     
+</script>
+{{>footer}}
+
